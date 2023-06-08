@@ -1,12 +1,18 @@
-class bank {
-    name: String;
-    money: Number; 
+class Bank {
+    name: string;
+    money: number; 
+
+    constructor(name: string, money:number){
+        this.name = name;
+        this.money = money;
+    }
 }
 
 class bankController implements IMap {
     
-    create(): void {
-        throw new Error("Method not implemented.");
+    create(name: string, money: number): void {
+        let bank : Bank = new Bank(name, money);
+        this.container.push(bank);
     }
     edit(): void {
         throw new Error("Method not implemented.");
@@ -18,6 +24,6 @@ class bankController implements IMap {
         throw new Error("Method not implemented.");
     }
 
-    container: Map<number, bank>;
+    container: Array<Bank>;
     
 }

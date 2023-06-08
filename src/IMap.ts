@@ -1,6 +1,6 @@
 interface IMap {
 
-    container: Map<number, any>;
+    container: Array<any>;
 
     create(...args: any[]): void;
     edit(...args: any[]): void;
