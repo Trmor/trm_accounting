@@ -2,9 +2,9 @@ interface IMap {
 
     container: Map<number, any>;
 
-    create(): void;
-    edit(): void;
-    delete(): void;
-    getById(): any;
+    create(...args: any[]): void;
+    edit(...args: any[]): void;
+    delete(id: number): void;
+    getById(id: number): any;
     
 }
