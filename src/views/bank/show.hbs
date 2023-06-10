@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<header></header>
+<body> 
+    <div> Show bank page</div>
+        {{#each Banks}} 
+        <form type="button" action="/bank/delete/{{@index}}" method="post">
+            <button type="submit" >
+            <div>{{"name"}}</div>
+            <div>{{"money"}}</div>
+            </button>
+        </form>
+        <form type="button" action="/bank/edit/" method="post" >
+            
+            <input hidden value="{{@index}}"> 
+            <input type="text" name="name">
+            <input type="text" name="money">
+            <button type="submit" >Save</button>
+        </form>
+        {{/each}}
+</body>
+<footer></footer>

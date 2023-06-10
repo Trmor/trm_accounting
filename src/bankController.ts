@@ -1,3 +1,6 @@
+import { json } from "express";
+import { IMap } from "./IMap";
+
 class Bank {
     name: string;
     money: number; 
@@ -8,22 +11,39 @@ class Bank {
     }
 }
 
-class bankController implements IMap {
+class bankController extends IMap {
     
-    create(name: string, money: number): void {
+    public static create(name: string, money: number): void {
         let bank : Bank = new Bank(name, money);
         this.container.push(bank);
     }
-    edit(): void {
-        throw new Error("Method not implemented.");
-    }
-    delete(): void {
-        throw new Error("Method not implemented.");
-    }
-    getById() {
-        throw new Error("Method not implemented.");
+
+    public static edit(id: number, name:string, money:number): void {
+        let temp: Bank = this.container.at(id);
+        temp.name = name;
+        temp.money = money;
     }
 
-    container: Array<Bank>;
+    public static getById(id: number) {
+        //maybe unneeded
+        let bank : Bank = this.container.at(id);
+        return bank;
+    }
+
+    public static getSum(){
+        let sum: number = 0;
+
+        this.container.forEach(element => {
+            sum += element.money;
+        });        
+
+        return new Promise((resolve, reject) => {
+            resolve(sum);
+        })
+    }
+
+    protected static container: Array<Bank> = new Array<Bank>;
     
 }
+
+export {bankController};

@@ -1,10 +1,23 @@
-interface IMap {
+class IMap {
 
-    container: Array<any>;
+    protected static container: Array<any>;
 
-    create(...args: any[]): void;
-    edit(...args: any[]): void;
-    delete(id: number): void;
-    getById(id: number): any;
-    
+    static create(...args: any[]): void {};
+
+    static edit(...args: any[]): void {};
+
+    public static delete(id: number): void {
+        this.container.splice(id, 1);
+    }
+
+    static getById(id: number): any {};
+
+    static getContainer(): any {
+        return new Promise((resolve, reject) => {
+            resolve(this.container);
+        });
+    };
+     
 }
+
+export {IMap}
