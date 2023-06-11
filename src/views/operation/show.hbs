@@ -2,12 +2,12 @@
 <header></header>
 <body> 
     <div> Show bank page</div>
-        {{#each data.[1]}} 
+        {{#each data.[0]}} 
         <form type="button" action="/bank/delete/{{@index}}" method="post">
             <button type="submit" >
                 <div>{{"date"}}</div>
-                <div>-{{"money"}}</div>
-                <div>{{"bank"}}</div>
+                <div>{{"money"}}</div>
+                <div>{{"data.[1].name"}}</div>
                 <div>{{"description"}}</div>
                 <div>{{"group"}}</div>           
             </button>

@@ -41,10 +41,14 @@ app.post("/bank/edit", urlencodedParser, (request, response) => {
 app.get("/operation/show", (request, response) => {
     let banks = bankController.getContainer();
     let operations = opertaionController.getContainer();
-    Promise.all([banks, operations]).then(data=>{
+    Promise.all([operations, banks]).then(data=>{
         response.render("operation/show", {data:data});
-    });
-    
+    }); 
+})
+
+app.post("/operation/delete/:id", (request, response) => {
+    bankController.delete(request.params.id as unknown as number);
+    response.redirect("/operation/show");
 })
 
 app.get("/operation/create", (request, response) => {
@@ -57,4 +61,3 @@ app.post("/operation/create", urlencodedParser, (request, response) => {
     let rb = request.body;
     opertaionController.create(date, rb.money, rb.bankId, rb.description, rb.group);
 })
-

@@ -38,6 +38,43 @@ class opertaionController extends IMap{
         return opertaion;
     }
 
+    public static getByPeriod(date1, date2) {
+        if(date1 === undefined){date1 = 0}
+        if(date2 === undefined){date2 = Date.now()+100}
+        let operations : Operation[] = [];
+        this.container.forEach(element => {
+            if(element.date > date1 && element.date < date2){
+                operations.push(element);
+            }
+        });
+        return new Promise((resolve, reject) => {
+            resolve(operations);
+        });
+    }
+
+    public static getByGroup(groupId: number) {
+        let operations : Operation[] = [];
+        this.container.forEach(element => {
+            if(element.group === groupId){
+                operations.push(element);
+            }
+        });
+        return new Promise((resolve, reject) => {
+            resolve(operations);
+        });
+    }
+
+    public static getByBank(bankId: number) {
+        let operations : Operation[] = [];
+        this.container.forEach(element => {
+            if(element.bankId = bankId){
+                operations.push(element)
+            }
+        });
+        return new Promise((resolve, reject) => {
+            resolve(operations);
+        });
+    }
 
     protected static container:Array<Operation> = new Array<Operation>;
 
