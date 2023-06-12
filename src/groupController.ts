@@ -28,3 +28,5 @@ class groupController extends IMap {
     protected static container: Array<Group> = new Array<Group>;
 
 }
+
+export {groupController}

@@ -1,6 +1,7 @@
 import express, { request, response } from 'express';
-import  {bankController} from "./bankController";
+import  { bankController } from "./bankController";
 import { opertaionController } from './operationController';
+import { groupController } from './groupController';
 
 const app = express();
 const port = 3000;
@@ -52,7 +53,7 @@ app.post("/operation/delete/:id", (request, response) => {
 })
 
 app.get("/operation/create", (request, response) => {
-    // Promise.all([bankController.getContainer(), groupController.getContainer()]).then(data => {});
+    Promise.all([bankController.getContainer(), groupController.getContainer()]).then(data => {});
     response.render("operation/create");
 })
 
