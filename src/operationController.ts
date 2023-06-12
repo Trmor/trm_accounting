@@ -1,5 +1,7 @@
 import { IMap } from "./IMap";
-
+/**
+ * Controlled class, used as a data holder/structure to be added to container 
+ */
 class Operation {
 
     date: Date;
@@ -16,7 +18,9 @@ class Operation {
         this.group = group;
     }
 }
-
+/**
+ * Class controller, operates with specified class, creates, edits, deletes etc...
+ */
 class opertaionController extends IMap{
 
     public static create(date:Date, money:number, bankId:number, description:string, group:number){
@@ -38,6 +42,12 @@ class opertaionController extends IMap{
         return opertaion;
     }
 
+    /**
+     * 
+     * @param date1 date after
+     * @param date2 date before
+     * @returns Promise, array of objects
+     */
     public static getByPeriod(date1, date2) {
         if(date1 === undefined){date1 = 0}
         if(date2 === undefined){date2 = Date.now()+100}
@@ -51,7 +61,11 @@ class opertaionController extends IMap{
             resolve(operations);
         });
     }
-
+    /**
+     * 
+     * @param groupId Id of a group
+     * @returns Promise, array of selected objects
+     */
     public static getByGroup(groupId: number) {
         let operations : Operation[] = [];
         this.container.forEach(element => {
@@ -63,7 +77,11 @@ class opertaionController extends IMap{
             resolve(operations);
         });
     }
-
+    /**
+     * 
+     * @param bankId Id of a bank
+     * @returns Promise, array of selected objects 
+     */
     public static getByBank(bankId: number) {
         let operations : Operation[] = [];
         this.container.forEach(element => {

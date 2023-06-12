@@ -1,6 +1,7 @@
-import { json } from "express";
 import { IMap } from "./IMap";
-
+/**
+ * Controlled class, used as a data holder/structure to be added to container 
+ */
 class Bank {
     name: string;
     money: number; 
@@ -10,7 +11,9 @@ class Bank {
         this.money = money;
     }
 }
-
+/**
+ * Class controller, operates with specified class, creates, edits, deletes etc...
+ */
 class bankController extends IMap {
     
     public static create(name: string, money: number): void {
@@ -30,6 +33,7 @@ class bankController extends IMap {
         return bank;
     }
 
+    /** Returns promise, Sum of money of all bank objects */
     public static getSum(){
         let sum: number = 0;
 
