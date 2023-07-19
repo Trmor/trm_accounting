@@ -1,4 +1,4 @@
-import { IMap } from "./IMap";
+import { IMap } from "../modules/IMap";
 
 class Group {
     name: string;
@@ -8,7 +8,7 @@ class Group {
     }
 }
 
-class groupController extends IMap {
+class groupModel extends IMap {
     
     public static create(name: string): void {
         let group: Group = new Group(name);
@@ -29,4 +29,4 @@ class groupController extends IMap {
 
 }
 
-export {groupController}
+export {groupModel as groupModel}

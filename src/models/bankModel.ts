@@ -1,4 +1,4 @@
-import { IMap } from "./IMap";
+import { IMap } from "../modules/IMap";
 /**
  * Controlled class, used as a data holder/structure to be added to container 
  */
@@ -14,7 +14,7 @@ class Bank {
 /**
  * Class controller, operates with specified class, creates, edits, deletes etc...
  */
-class bankController extends IMap {
+class bankModel extends IMap {
     
     public static create(name: string, money: number): void {
         let bank : Bank = new Bank(name, money);
@@ -50,4 +50,4 @@ class bankController extends IMap {
     
 }
 
-export {bankController};
+export {bankModel as bankModel};

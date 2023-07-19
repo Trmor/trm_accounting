@@ -1,4 +1,4 @@
-import { IMap } from "./IMap";
+import { IMap } from "../modules/IMap";
 /**
  * Controlled class, used as a data holder/structure to be added to container 
  */
@@ -21,7 +21,7 @@ class Operation {
 /**
  * Class controller, operates with specified class, creates, edits, deletes etc...
  */
-class opertaionController extends IMap{
+class operationModel extends IMap{
 
     public static create(date:Date, money:number, bankId:number, description:string, group:number){
         let opertation: Operation = new Operation(date, money, bankId, description, group);
@@ -38,8 +38,8 @@ class opertaionController extends IMap{
     }
 
     public static getById(id: number) {
-        let opertaion = this.container.at(id);
-        return opertaion;
+        let operation = this.container.at(id);
+        return operation;
     }
 
     /**
@@ -98,4 +98,4 @@ class opertaionController extends IMap{
 
 }
 
-export {opertaionController}
+export {operationModel as operationModel}

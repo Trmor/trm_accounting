@@ -22,6 +22,10 @@ class IMap {
             resolve(this.container);
         });
     };
+    /** Sets container of the responsible class */
+    static setContainer(container : Array<any>): any {
+        this.container = container;
+    }
      
 }
 

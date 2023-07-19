@@ -1,64 +1,30 @@
 import express, { request, response } from 'express';
-import  { bankController } from "./bankController";
-import { opertaionController } from './operationController';
-import { groupController } from './groupController';
+import { saveload } from './modules/saveload';
+import path from 'node:path'
+import bankRouter from "./routes/bankRouter";
+import operationRouter from "./routes/operationRouter";
+import groupRouter from "./routes/groupRouter";
 
 const app = express();
 const port = 3000;
-const urlencodedParser = express.urlencoded({extended: false});
+var hbs = require('hbs');
+hbs.registerHelper('getNameById', (array, id)=>{ return array[id].name;});
 
+app.set('view engine', 'hbs');
+app.set("views", path.join(__dirname, "../", "/src/views/"))
 app.listen(port, () => console.log(`Running on port ${port}`));
-app.set("view engine", "hbs");
-app.set("views", "./src/views")
+app.use(express.urlencoded({extended: false}));
+app.use("/bank", bankRouter);
+app.use("/operation", operationRouter);
+app.use("/group", groupRouter);
 
-app.get('/', (request, response) => {
-    response.send('Hello world!');
-});
 
-app.get("/bank/create", (request, response) => {
-    response.render("bank/create");
-});
+saveload.checkIfExists(); saveload.load();
 
-app.post("/bank/create", urlencodedParser, (request, response) => {
-    bankController.create(request.body.name, request.body.money);
-    response.redirect("/bank/create");
-});
-
-app.get("/bank/show", (request, response) => {
-    let data = bankController.getContainer();
-    response.render("bank/show", {Banks: data});
-});
-
-app.post("/bank/delete/:id", (request, response) => {
-    bankController.delete(request.params.id as unknown as number);
-    response.redirect("/bank/show");
+app.get("/save", (request, response) => {
+    saveload.save();
+    response.redirect("bank/show")
 })
-
-app.post("/bank/edit", urlencodedParser, (request, response) => {
-    bankController.edit(request.body.id, request.body.name, request.body.money);
-    response.redirect("/bank/show");
-})
-
-app.get("/operation/show", (request, response) => {
-    let banks = bankController.getContainer();
-    let operations = opertaionController.getContainer();
-    Promise.all([operations, banks]).then(data=>{
-        response.render("operation/show", {data:data});
-    }); 
-})
-
-app.post("/operation/delete/:id", (request, response) => {
-    bankController.delete(request.params.id as unknown as number);
-    response.redirect("/operation/show");
-})
-
-app.get("/operation/create", (request, response) => {
-    Promise.all([bankController.getContainer(), groupController.getContainer()]).then(data => {});
-    response.render("operation/create");
-})
-
-app.post("/operation/create", urlencodedParser, (request, response) => {
-    let date : Date = new Date(request.body.date);
-    let rb = request.body;
-    opertaionController.create(date, rb.money, rb.bankId, rb.description, rb.group);
+app.get("/", (request, response)=>{
+    response.redirect("operation/show")
 })
