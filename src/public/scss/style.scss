@@ -1,0 +1,58 @@
+@use "sass:color";
+$btncolor : #aaaaaa ; //general palette
+$navwidth: 50px; //width of navigation menu
+
+.button {
+    color: black;
+    border-radius: 20px;
+    width: 10%;
+    height: 10%;
+    margin: 5px;
+    text-align: center;
+    background-color: $btncolor;
+    overflow: hidden;
+    //outline: black solid 2px;
+    height: 60px;
+    transition: all .5s ease;
+    &:hover{
+        border-radius: 20px;
+        background-color: color.adjust($btncolor, $lightness: 10%);
+    }
+    &:active{   
+        border-radius: 20px; 
+        background-color: color.adjust($btncolor, $lightness: -10%);
+    }
+}
+.button.expand{
+    height: 100px;
+}
+
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: $navwidth; /* 0 width - change this with JavaScript */
+    position: fixed;
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: $btncolor; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 25px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  }
+
+#main {
+    margin-left: $navwidth;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: wrap-reverse;
+    justify-content: flex-start;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

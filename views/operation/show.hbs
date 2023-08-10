@@ -1,0 +1,13 @@
+<div>
+    {{#each data.[0]}} 
+        <div>
+        <div id="{{@index}}" type="submit" class="button">
+            <div>{{formatDate date}}</div>
+            <div>{{"money"}}</div>
+            <div>{{getNameById ../data.[1] bankId}}</div>
+            <div hidden>{{"description"}}</div>
+            <div>{{getNameById ../data.[2] group}}</div>    
+        </div>       
+    </div>
+    {{/each}}
+</div>
