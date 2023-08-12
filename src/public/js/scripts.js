@@ -10,4 +10,5 @@ window.addEventListener("DOMContentLoaded", ()=>{
     })
 })
 //in progress
-
+// change behaviour onclick to expand the tab
+// also bind ctrl+s to fetch save

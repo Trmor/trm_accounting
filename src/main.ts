@@ -16,7 +16,8 @@ hbs.registerHelper('getNameById', (array, id)=>{return array[id].name;});
 hbs.registerHelper("formatDate", (date)=>{ 
     let formatted = Date.parse(date);
     let string = new Date(formatted).toLocaleString("ru", {year:"2-digit",month:"2-digit", day:"2-digit", hour:"2-digit", minute:"2-digit"});
-    console.log(string , formatted)
+    string = string.replace(/,/g,"   \n");
+    console.log(string , formatted);
     return string;
 });
 

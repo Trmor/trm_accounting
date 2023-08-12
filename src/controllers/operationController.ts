@@ -12,6 +12,7 @@ exports.createPost = (request, response)=>{
     let date : Date = new Date(request.body.date);
     let rb = request.body;
     operationModel.create(date, rb.money, rb.bankId, rb.description, rb.groupId);
+    response.redirect("/operation/create");
 };
 exports.show = (request, response)=>{
     let banks = bankModel.getContainer();
