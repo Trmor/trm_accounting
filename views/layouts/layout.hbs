@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html>
 <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="/css/style.css">
 <head>
     <meta charset="utf-8" />
 </head>
 <body>
     <div style="display:flex; flex-direction:row; height:100%;">
-        <div class="sidenav"></div>
+        <div class="sidenav">
+            <a class="nav-button" href="/bank/show">
+                <i class="material-icons">account_balance</i>
+            </a>
+            <a class="nav-button" href="/group/show">
+                <i class="material-icons">description</i>
+            </a>
+            <a class="nav-button" href="/operation/show">
+                <i class="material-icons">dvr</i>
+            </a>
+        </div>
         <div class="container">{{{body}}}</div>
     </div>   
 </body>

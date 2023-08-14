@@ -26,6 +26,7 @@ body {
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   text-align: center;
   background-color: #d9d9d9;
+  user-select: none;
   transition: all 0.5s ease;
 }
 .button:hover {
@@ -46,6 +47,7 @@ body {
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   text-align: center;
   background-color: #d9d9d9;
+  user-select: none;
   transition: all 0.5s ease;
   display: flex;
   justify-content: center;
@@ -66,8 +68,34 @@ body {
   color: black;
 }
 
+.nav-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  background: #d9d9d9;
+  transition: all 0.5s ease;
+  box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.25);
+  text-decoration: none;
+}
+.nav-button:hover {
+  border-radius: 10px;
+  background-color: #f3f3f3;
+}
+.nav-button:active {
+  border-radius: 10px;
+  background-color: silver;
+}
+.nav-button:visited {
+  color: black;
+}
+
 .button.expand {
-  height: 100px;
+  width: 420px;
+  height: 232px;
 }
 
 .sidenav {
@@ -76,7 +104,7 @@ body {
   padding: 20px 10px;
   flex-direction: column;
   align-items: flex-start;
-  gap: 45px;
+  gap: 15px;
   flex-shrink: 0;
   background: #D9D9D9;
 }
@@ -110,13 +138,29 @@ body {
   font-weight: 400;
   line-height: normal;
 }
+.txt.expand {
+  font-size: 24px;
+}
 
 .money {
-  height: inherit;
+  height: 106px;
   margin-top: -41px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.money.expand {
+  padding: 14px 24px;
+  height: 41px;
+  justify-content: flex-start;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
 }
 
 /*# sourceMappingURL=style.css.map */

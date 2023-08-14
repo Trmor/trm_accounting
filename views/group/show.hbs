@@ -1,7 +1,6 @@
-<div> Show group page</div>
 {{#each Groups}} 
-<div id="{{@index}}" type="submit" class="button center">
-    <div>{{"name"}}</div>
-</div>
-</form>
+    <div class="button center">
+        <div class="txt">{{"name"}}</div>
+    </div>
 {{/each}}
+<a class="button-add" href="/group/create"><t>+</t></a>  

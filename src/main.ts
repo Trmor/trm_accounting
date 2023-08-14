@@ -35,7 +35,6 @@ saveload.checkIfExists(); saveload.load();
 
 app.get("/save", (request, response) => {
     saveload.save();
-    response.redirect("bank/show")
 })
 app.get("/", (request, response)=>{
     response.redirect("operation/show")
