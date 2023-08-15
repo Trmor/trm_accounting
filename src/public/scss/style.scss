@@ -47,6 +47,12 @@ body{
 .button{
     @include button; 
 }
+.button-info{
+    @include button;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
 .button-add{
     @include button;
     display: flex;
@@ -101,12 +107,6 @@ body{
     background: #D9D9D9;
   }
 
-.center{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .time-txt{
     padding-right: 5px;
     display: flex;
@@ -144,6 +144,42 @@ body{
         height: $timeheight;
         justify-content: flex-start;
     }
+}
+.info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 60%;
+    padding: 0px 24px 24px;
+    .desc{
+        height: 100%;
+        overflow-y: scroll;
+        overflow-x: auto;
+        user-select: text;
+        text-align: initial;
+        &::selection{
+            background-color: #aaaaaa;
+        }
+    }
+}
+
+.fade{
+    animation: fadeInOut 1s ease-in forwards;
+}
+.fadeFast{
+    animation: fadeInOut 4s ease-in backwards;
+}
+@keyframes fadeInOut{
+    0%,100% {opacity: 1;}
+    25%,50% {opacity: 0;}
+}
+
+.create{
+    display:flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    gap:10px;
+    width: 15%;
 }
 
 

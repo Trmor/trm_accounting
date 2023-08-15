@@ -1,17 +1,16 @@
-<div> Create operation page</div>
-    <form method="post">
-        <input placeholder="Date" required id="date" name="date" type="datetime-local" />
-        <input placeholder="Money" required id="money" name="money" type="text" />
-        <select placeholder="Bank" required id="bankId" name="bankId">
-            {{#each data.[0]}}
-            <option value="{{@index}}">{{name}}</option>
-            {{/each}}
-        </select>
-        <input placeholder="Desc." id="description"name="description">
-        <select placeholder="Group"  required id="groupId" name="groupId">
-            {{#each data.[1]}}
-            <option value="{{@index}}">{{name}}</option> 
-            {{/each}}
-        </select>
-        <input type="submit" value="Create"> 
-    </form>
+<form method="post" class="create"> 
+    <input placeholder="Date" required id="date" name="date" type="datetime-local" />
+    <input placeholder="Money" required id="money" name="money" type="text" />
+    <select placeholder="Bank" required id="bankId" name="bankId">
+        {{#each data.[0]}}
+        <option value="{{@index}}">{{name}}</option>
+        {{/each}}
+    </select>
+    <textarea placeholder="Desc." id="description"name="description"></textarea>
+    <select placeholder="Group"  required id="groupId" name="groupId">
+        {{#each data.[1]}}
+        <option value="{{@index}}">{{name}}</option> 
+        {{/each}}
+    </select>
+    <input type="submit" value="Create"> 
+</form>
