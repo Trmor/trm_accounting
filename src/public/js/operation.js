@@ -24,7 +24,21 @@ window.addEventListener("DOMContentLoaded", ()=>{
             animation(e);
         })
     });
+
+    document.querySelectorAll(".del-circle").forEach(el => {
+        el.addEventListener("click", (e)=>{
+            e.stopPropagation();
+            if(confirm("Delete?")){
+                let id = el.parentElement.id;
+                console.log(fetch("/operation/delete/"+id));
+                el.parentElement.parentElement.remove();
+            }else{
+                console.log("Deletion cancelled");
+            }
+        })
+    });
 })
+
 
 
 let animation = (node) =>{

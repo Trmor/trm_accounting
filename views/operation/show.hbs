@@ -1,14 +1,17 @@
 <script src="/js/operation.js"></script>
 
 {{#each data.[0]}} 
-    <div id="{{@index}}" type="submit" class="button">
+    <div class="button">
         <div class="time-txt">{{formatDate date}}</div>
         <div class="txt money">{{"money"}}</div>
         <div class="info txt">
             <div >{{getNameById ../data.[1] bankId}}</div>
             <div >{{getNameById ../data.[2] group}}</div>
             <div class="desc">{{"description"}}</div>
-        </div>    
+        </div>
+        <div class="control-button" id={{@index}}>
+            <div class="del-circle"></div>
+        </div>
     </div>
 {{/each}}
 

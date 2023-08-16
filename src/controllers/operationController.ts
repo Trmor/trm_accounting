@@ -25,7 +25,6 @@ exports.show = (request, response)=>{
 };
 exports.delete = (request, response)=>{
     operationModel.delete(request.params.id as unknown as number);
-    response.redirect("/operation/show");
 };
 exports.edit = (request, response)=>{
     const rb = request.body;
